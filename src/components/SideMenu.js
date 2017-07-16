@@ -10,7 +10,7 @@ const SideMenuContainer = styled.aside`
   height: 100%;
   overflow: hidden;
   z-index: 150;
-  pointer-events: ${props => props.visible ? 'auto' : 'none'};
+  pointer-events: ${props => (props.visible ? 'auto' : 'none')};
   :after {
     content: '';
     display: block;
@@ -20,15 +20,15 @@ const SideMenuContainer = styled.aside`
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    opacity: ${props => props.visible ? 1 : 0};
+    opacity: ${props => (props.visible ? 1 : 0)};
     will-change: opacity;
-    pointer-events: ${props => props.visible ? 'auto' : 'none'};
-    transition: opacity 0.3s cubic-bezier(0,0,0.3,1);  
-  };
+    pointer-events: ${props => (props.visible ? 'auto' : 'none')};
+    transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+  }
 `;
 
 const SlideableMenu = styled.div`
-  background: linear-gradient(#ED6153, #ED6153 50%, #F9B16D);
+  background: linear-gradient(#ed6153, #ed6153 50%, #f9b16d);
   line-height: 3;
   position: relative;
   max-width: 300px;
@@ -41,16 +41,16 @@ const SlideableMenu = styled.div`
   will-change: transform;
   z-index: 160;
   pointer-events: auto;
-  transition: ${props => props.visible ? 'all 230ms ease-in' : 'all 330ms ease-out'};
-  transform: ${props => props.visible ? 'none' : 'translateX(-103%)'};
+  transition: ${props =>
+    props.visible ? 'all 230ms ease-in' : 'all 330ms ease-out'};
+  transform: ${props => (props.visible ? 'none' : 'translateX(-103%)')};
 `;
 
-const SideMenu = ({ visible, children, ...rest }) => (
+const SideMenu = ({ visible, children, ...rest }) =>
   <SideMenuContainer visible={visible}>
     <SlideableMenu visible={visible}>
-      { children }
+      {children}
     </SlideableMenu>
-  </SideMenuContainer>
-);
+  </SideMenuContainer>;
 
 export { SideMenu };

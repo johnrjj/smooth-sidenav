@@ -29,20 +29,21 @@ const NavLinksHeader = styled.div`
 `;
 
 const NavLinkContainer = styled.li`
-  background: ${props => props.selected ? 'rgba(255, 255, 255, 0.2)' : 'inherit'};
-  border-left: ${props => props.selected ? '4px solid white' : 'none'};
-  padding-left: ${props => props.selected ? '2rem' : 'calc(2rem + 4px)'};
+  background: ${props =>
+    props.selected ? 'rgba(255, 255, 255, 0.2)' : 'inherit'};
+  border-left: ${props => (props.selected ? '4px solid white' : 'none')};
+  padding-left: ${props => (props.selected ? '2rem' : 'calc(2rem + 4px)')};
   list-style-type: none;
   cursor: pointer;
-  :hover { 
-    background: rgba(255, 255, 255, 0.1); 
+  :hover {
+    background: rgba(255, 255, 255, 0.1);
   }
 `;
 
 const NavLink = styled.div`
   opacity: 0.8;
-  font-weight: ${props => props.selected ? '500' : '300'};
-`;  
+  font-weight: ${props => (props.selected ? '500' : '300')};
+`;
 
 const Logo = styled.div`
   border-radius: 50%;
@@ -70,7 +71,7 @@ const Header = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, .14);
   height: 3rem;
 `;
 
@@ -79,26 +80,20 @@ const HeaderMenuButtonContainer = styled.div`
   padding: 1rem;
 `;
 
-const HeaderMenuButton = styled.img`
-  height: 20px;
-`;
+const HeaderMenuButton = styled.img`height: 20px;`;
 
 const Main = styled.main``;
 
-const Headline = styled.h1`
-  font-size: 35px;
-`;
+const Headline = styled.h1`font-size: 35px;`;
 
 const ContentTitle = styled.h2`
   font-size: 20px;
   font-weight: 400;
-  color: #FC6E57;
+  color: #fc6e57;
   margin-bottom: 1rem;
 `;
 
-const PageContainer = styled.div`
-  margin: 3rem 6rem;
-`;
+const PageContainer = styled.div`margin: 3rem 6rem;`;
 
 const HorizontalLine = styled.hr`
   display: block;
@@ -109,13 +104,9 @@ const HorizontalLine = styled.hr`
   padding: 0;
 `;
 
-const ParagraphContainer = styled.div`
-  width: 50%;
-`;
+const ParagraphContainer = styled.div`width: 50%;`;
 
-const ParagraphText = styled.p`
-  line-height: 1.3;
-`;
+const ParagraphText = styled.p`line-height: 1.3;`;
 
 class App extends Component {
   state = {
@@ -127,66 +118,54 @@ class App extends Component {
       <AppContainer>
         <SideMenu visible={this.state.menuOpen}>
           <SideMenuCloseButtonContainer>
-            <SideMenuCloseButtonImg 
-              style={{cursor: 'pointer'}} 
-              onClick={() => this.setState({ menuOpen: !this.state.menuOpen })} 
-              src={closeX} 
+            <SideMenuCloseButtonImg
+              style={{ cursor: 'pointer' }}
+              onClick={() => this.setState({ menuOpen: !this.state.menuOpen })}
+              src={closeX}
             />
           </SideMenuCloseButtonContainer>
-            <LogoContainer>
-              <Logo/>
-            </LogoContainer>
-            <NavLinksContainer>
-              <NavLinksHeader>
-                Favorites
-              </NavLinksHeader>
-              <ul>
-                <NavLinkContainer selected={false}>
-                  <NavLink>
-                    Ipsum Dorum
-                  </NavLink>
-                </NavLinkContainer>
-                <NavLinkContainer selected={true}>
-                  <NavLink selected={true}>
-                    Some favorite
-                  </NavLink>
-                </NavLinkContainer >
-                <NavLinkContainer selected={false}>
-                  <NavLink>
-                    Another one
-                  </NavLink>
-                </NavLinkContainer>
-              </ul>
-            </NavLinksContainer>
+          <LogoContainer>
+            <Logo />
+          </LogoContainer>
+          <NavLinksContainer>
+            <NavLinksHeader>Favorites</NavLinksHeader>
+            <ul>
+              <NavLinkContainer selected={false}>
+                <NavLink>Ipsum Dorum</NavLink>
+              </NavLinkContainer>
+              <NavLinkContainer selected={true}>
+                <NavLink selected={true}>Some favorite</NavLink>
+              </NavLinkContainer>
+              <NavLinkContainer selected={false}>
+                <NavLink>Another one</NavLink>
+              </NavLinkContainer>
+            </ul>
+          </NavLinksContainer>
         </SideMenu>
         <Main>
           <Header>
-            <HeaderMenuButtonContainer onClick={() => this.setState({menuOpen: !this.state.menuOpen})}>
-              <HeaderMenuButton 
-                src={menuThreeLines} 
-                alt="Open side menu" 
-              />
+            <HeaderMenuButtonContainer
+              onClick={() => this.setState({ menuOpen: !this.state.menuOpen })}
+            >
+              <HeaderMenuButton src={menuThreeLines} alt="Open side menu" />
             </HeaderMenuButtonContainer>
           </Header>
           <PageContainer>
-            <Headline>
-              Ipsum Dorum
-            </Headline>
-            <HorizontalLine/>
+            <Headline>Ipsum Dorum</Headline>
+            <HorizontalLine />
             <section>
-              <ContentTitle>
-                Content Title
-              </ContentTitle>
+              <ContentTitle>Content Title</ContentTitle>
               <ParagraphContainer>
-              <ParagraphText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                culpa qui officia deserunt mollit anim id est laborum
-              </ParagraphText>
+                <ParagraphText>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum
+                </ParagraphText>
               </ParagraphContainer>
             </section>
           </PageContainer>
